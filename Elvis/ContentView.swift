@@ -13,39 +13,53 @@ struct ContentView: View {
     var body: some View {
         VStack {
             
-            Text("What's So Funny 'Bout")
+            Text("Elvis Costolo")
                 .font(.largeTitle)
                 .foregroundColor(.purple)
                 .fontWeight(.black)
+            
             Spacer()
+            
             Image(systemName: imageString)
                 .resizable()
                 .scaledToFit()
                 .foregroundColor(.black)
+                .frame(width: 300, height: 300)
             Text(messageString)
                 .font(.largeTitle)
                 .foregroundColor(.purple)
                 .fontWeight(.black)
+            
+            Spacer()
+            
             HStack{
-                Button("Peace") {
-                    messageString = "Peace"
-                    imageString = "peacesign"
-                }
-                    Button("Love") {
+                Button("Flip through") {
+                    if messageString == "Peace"{
                         messageString = "Love"
-                        imageString = "heart"
-                }
-                Button("Understanding") {
-                    messageString = "Understanding"
-                    imageString = "lightbulb"
-                }
-            }
-            .buttonStyle(.borderedProminent)
-            .tint(.purple)
+                        imageString = "peacesign"
                     }
-        .padding()
+                    
+                    else if  messageString == "Love"{
+                        messageString = "Understanding"
+                        imageString = "heart"}
+                    
+                    else if messageString == "Understanding"{
+                        messageString = "Peace"
+                        imageString = "lightbulb"}
+                    else if messageString == ""{
+                        messageString = "Peace"
+                        imageString = "peacesign"}
+                }
+                
+               
+            }
+        }
+        .buttonStyle(.borderedProminent)
+        .tint(.purple)
     }
+      
 }
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
